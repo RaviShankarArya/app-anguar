@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src= "bower_components/angular/angular.min.js"></script>
+<body ng-controller="validateCtrl">
+
+<h2>Sign Up</h2>
+
+<form
+name="myForm" novalidate>
+<p>First Name:<br>
+<input type="text" name="first_name" ng-model="frm.first_name" required>
+<span style="color:red" ng-show="myForm.frm.first_name.$dirty && myForm.frm.first_name.$invalid">
+<span ng-show="myForm.frm.first_name.$error.required">First Name is required.</span>
+</span>
+</p>
+
+<p>Last Name:<br>
+<input type="text" name="last_name" ng-model="frm.last_name" required>
+<span style="color:red" ng-show="myForm.frm.last_name.$dirty && myForm.frm.last_name.$invalid">
+<span ng-show="myForm.frm.last_name.$error.required">Last Name is required.</span>
+</span>
+</p>
+
+<p>Email:<br>
+<input type="email" name="email" ng-model="frm.email" required>
+<span style="color:red" ng-show="myForm.frm.email.$dirty && myForm.frm.email.$invalid">
+<span ng-show="myForm.frm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.frm.email.$error.email">Invalid email address.</span>
+</span>
+</p>
+
+<p>Password:<br>
+<input type="password" name="password" ng-model="frm.password" required>
+<span style="color:red" ng-show="myForm.frm.password.$dirty && myForm.frm.password.$invalid">
+<span ng-show="myForm.frm.password.$error.required">Password is required.</span>
+</span>
+</p>
+
+<p>Password Cofirmation:<br>
+<input type="password" name="password_confirmation" ng-model="frm.password_confirmation" required>
+<span style="color:red" ng-show="myForm.frm.password_confirmation.$dirty && myForm.frm.password_confirmation.$invalid">
+<span ng-show="myForm.frm.password_confirmation.$error.required">Password Confirmation is required.</span>
+</span>
+</p>
+
+<p>Phone:<br>
+<input type="text" name="phone" ng-model="frm.phone" required>
+<span style="color:red" ng-show="myForm.frm.phone.$dirty && myForm.frm.phone.$invalid">
+<span ng-show="myForm.frm.phone.$error.required">Phone is required.</span>
+</span>
+</p>
+
+<p>
+<button ng-click="save()" ng-disabled="myForm.first_name.$dirty && myForm.first_name.$invalid ||
+myForm.email.$dirty && myForm.email.$invalid || myForm.last_name.$dirty && myForm.last_name.$invalid || myForm.password.$dirty && myForm.password.$invalid || myForm.password_confirmation.$dirty && myForm.password_confirmation.$invalid || myForm.phone.$dirty && myForm.phone.$invalid ">Save</button>
+</p>
+
+</form>
+
+
+
+</body>
+</html>
+
+<script src="scripts/controllers/users.js"></script>
+<script src="scripts/services/user_services.js"></script>
